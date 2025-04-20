@@ -1,0 +1,179 @@
+enum {
+
+	THERMAL_UNDEFINED = 0,
+	THERMAL_MIN_HEAT_PROTECT,
+	THERMAL_MOD_HEAT_PROTECT,
+	THERMAL_MAX_HEAT_PROTECT,
+	THERMAL_MIN_COLD_PROTECT,
+	THERMAL_MOD_COLD_PROTECT,
+	THERMAL_MAX_COLD_PROTECT
+};
+
+enum attachmentData {
+
+	attach_model,
+	attach_name [ 32 ],
+	attach_thermal_info
+} ;
+
+/*
+    TRAY_1,TRAY_2,TRAY_3,
+    
+    
+*/
+
+// This is their primary attachment slot, but it is not absolute.
+new Attachments [ ] [ attachmentData ] = {
+
+	{ 18951, "Yellow Bowler Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18947, "Black Bowler Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18950, "Red Bowler Hat", THERMAL_MIN_HEAT_PROTECT  } ,
+	{ 18948, "Blue Bowler Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18949, "Green Bowler Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19488, "White Bowler Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19096, "Black Cowboy Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18962, "Dark Cowboy Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19098, "Brown Cowboy Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19095, "Brown/Grey Cowboy Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19097, "Red Cowboy Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18946, "Green Boater Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19553, "Straw Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19487, "White Top Hat", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 19352, "Black Top Hat", THERMAL_MIN_HEAT_PROTECT } ,
+
+	{ 19528, "Witch Hat", THERMAL_MIN_HEAT_PROTECT} ,
+	{ 19520, "Police Cap 1", THERMAL_MIN_HEAT_PROTECT} ,
+	{ 19521, "Police Cap 2", THERMAL_MIN_HEAT_PROTECT} ,
+
+	{ 18891, "Dark Blue Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18892, "Red Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ BANDANA_RED, "Red Bandana 2", THERMAL_MIN_HEAT_PROTECT }, 
+	{ 18893, "Red/White Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18894, "Orange Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ BANDANA_ORANGE, "Orange Bandana 2", THERMAL_MIN_HEAT_PROTECT }, 
+	{ 18895, "Skull Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18896, "Black Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18897, "Blue Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18898, "Green Bandana", THERMAL_MIN_HEAT_PROTECT } ,
+	{ BANDANA_GREEN, "Green Bandana 2", THERMAL_MIN_HEAT_PROTECT }, 
+	{ 18911, "Skull Bandana Mask", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18912, "Black Bandana Mask", THERMAL_MIN_HEAT_PROTECT } ,
+	{ 18913, "Green Bandana Mask", THERMAL_MIN_HEAT_PROTECT } ,
+
+	{ BANDANA_BROWN, "Brown Bandana", THERMAL_MIN_HEAT_PROTECT }, 
+	{ BANDANA_OLIVE, "Olive Bandana", THERMAL_MIN_HEAT_PROTECT }, 
+	{ BANDANA_PURPLE, "Purple Bandana", THERMAL_MIN_HEAT_PROTECT },
+
+	{ BELT_BLACK, "Black Belt", THERMAL_UNDEFINED } ,
+	{ BELT_BLACKB, "Black Belt 2", THERMAL_UNDEFINED } ,
+	{ BELT_BROWN, "Brown Belt", THERMAL_UNDEFINED } ,
+	{ BELT_BROWNB, "Brown Belt 2", THERMAL_UNDEFINED } ,
+	{ BELT_BULLETS, "Bullets Belt", THERMAL_UNDEFINED } ,
+	{ BELT_ORANGE, "Orange Belt", THERMAL_UNDEFINED } ,
+
+	{ BANDOLIER, "Bandolier", THERMAL_UNDEFINED }, 
+	{ HOLSTER_1, "Holster 1", THERMAL_UNDEFINED }, 
+	{ HOLSTER_2, "Holster 2", THERMAL_UNDEFINED }, 
+	{ HOLSTER_3, "Holster 3", THERMAL_UNDEFINED }, 
+	{ HOLSTER_4, "Holster 4", THERMAL_UNDEFINED }, 
+	{ HOLSTER_5, "Holster 5", THERMAL_UNDEFINED }, 
+	{ HOLSTER_6, "Holster 6", THERMAL_UNDEFINED }, 
+	{ SHEATH_1, "Sheath 1", THERMAL_UNDEFINED }, 
+	{ SHEATH_2, "Sheath 2", THERMAL_UNDEFINED },
+
+	{ KERCHIEF_BLUE, "Blue Kerchief", THERMAL_MIN_COLD_PROTECT },
+	{ KERCHIEF_GREY, "Grey Kerchief", THERMAL_MIN_COLD_PROTECT },
+	{ KERCHIEF_OLIVE, "Olive Kerchief", THERMAL_MIN_COLD_PROTECT },
+	{ KERCHIEF_ORANGE, "Orange Kerchief", THERMAL_MIN_COLD_PROTECT },
+	{ KERCHIEF_PURPLE, "Purple Kerchief", THERMAL_MIN_COLD_PROTECT },
+	{ KERCHIEF_RED,  "Red Kerchief", THERMAL_MIN_COLD_PROTECT },
+
+	{ PONCHO_1, "Poncho 1", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_2, "Poncho 2", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_3, "Poncho 3", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_4, "Poncho 4", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_5, "Poncho 5", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_6, "Poncho 6", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_7, "Poncho 7", THERMAL_MOD_COLD_PROTECT },
+	{ PONCHO_8, "Poncho 8", THERMAL_MOD_COLD_PROTECT },
+
+	{ POUCH_1, "Pouch 1", THERMAL_UNDEFINED },
+	{ POUCH_2, "Pouch 2", THERMAL_UNDEFINED },
+	{ POUCH_3, "Pouch 3", THERMAL_UNDEFINED },
+
+    { VEST_BLACK, "Black Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_BLUE, "Blue Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_BROWN, "Brown Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_GREEN, "Green Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_GREY, "Grey Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_REDA, "Red Vest", THERMAL_MIN_COLD_PROTECT },
+    { VEST_REDB, "Red Vest 2", THERMAL_MIN_COLD_PROTECT },
+
+	{ 19085, "Eye Patch", THERMAL_UNDEFINED } ,
+	{ 19349, "Monocle", THERMAL_UNDEFINED } ,
+	{ 19469, "Scarf", THERMAL_MOD_COLD_PROTECT } ,
+	{ 19554, "Black Beanie", THERMAL_MIN_COLD_PROTECT } ,
+	{ 19773, "Gun Holster", THERMAL_UNDEFINED} ,
+	{ 19995, "Ammo Clip", THERMAL_UNDEFINED} ,
+	{ 19801, "Balaclava", THERMAL_MOD_COLD_PROTECT } ,
+	{ 19944, "Body Bag~n~(for beards)", THERMAL_UNDEFINED } ,
+	{ 19624, "Travel Case", THERMAL_UNDEFINED} ,
+	{ 19559, "Backpack", THERMAL_UNDEFINED } ,
+	{ 1210, "Briefcase", THERMAL_UNDEFINED } ,
+	{ 19088, "Lasso", THERMAL_UNDEFINED } ,
+
+	{ 19015, "Glasses", THERMAL_UNDEFINED } ,
+	{ 19012, "Glasses 2", THERMAL_UNDEFINED } ,
+	{ 19031, "Glasses 3", THERMAL_UNDEFINED } ,
+	{ 19030, "Glasses 4", THERMAL_UNDEFINED } ,
+	{ 19033, "Sunglasses", THERMAL_UNDEFINED } ,
+	{ 19022, "Sunglasses 2", THERMAL_UNDEFINED } ,
+
+
+	{ 19077, "Black Hair", THERMAL_UNDEFINED } ,
+	{ 18975, "Brown Hair", THERMAL_UNDEFINED } ,
+	{ 18640, "Afro hair", THERMAL_UNDEFINED } ,
+	{ 19136, "Dreadlocks with hat", THERMAL_UNDEFINED } ,
+	{ 19516, "White hair 1", THERMAL_UNDEFINED } ,
+	{ 19517, "White hair 2", THERMAL_UNDEFINED } ,
+	{ 19518, "White hair 3", THERMAL_UNDEFINED } ,
+	{ 19519, "White hair 4", THERMAL_UNDEFINED } ,
+	{ 19350, "Mustache 1", THERMAL_UNDEFINED } ,
+	{ 19351, "Mustache 2", THERMAL_UNDEFINED },
+
+	{ BEARD_BLACK1, "Black Beard 1", THERMAL_UNDEFINED },
+	{ BEARD_BLACK2, "Black Beard 2", THERMAL_UNDEFINED },
+	{ BEARD_BLACK3, "Black Beard 3", THERMAL_UNDEFINED },
+	{ BEARD_BLACK4, "Black Beard 4", THERMAL_UNDEFINED },
+	{ BEARD_BLACK5, "Black Beard 5", THERMAL_UNDEFINED },
+	{ BEARD_BLACK6, "Black Beard 6", THERMAL_UNDEFINED },
+	{ BEARD_BROWN1, "Brown Beard 1", THERMAL_UNDEFINED },
+	{ BEARD_BROWN2, "Brown Beard 2", THERMAL_UNDEFINED },
+	{ BEARD_BROWN3, "Brown Beard 3", THERMAL_UNDEFINED },
+	{ BEARD_BROWN4, "Brown Beard 4", THERMAL_UNDEFINED },
+	{ BEARD_BROWN5, "Brown Beard 5", THERMAL_UNDEFINED },
+	{ BEARD_BROWN6, "Brown Beard 6", THERMAL_UNDEFINED },
+	{ BEARD_GREY1, "Grey Beard 1", THERMAL_UNDEFINED },
+	{ BEARD_GREY2, "Grey Beard 2", THERMAL_UNDEFINED },
+	{ BEARD_GREY3, "Grey Beard 3", THERMAL_UNDEFINED },
+	{ BEARD_GREY4, "Grey Beard 4", THERMAL_UNDEFINED },
+	{ BEARD_GREY5, "Grey Beard 5", THERMAL_UNDEFINED },
+	{ BEARD_GREY6, "Grey Beard 6", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE1, "Purple Beard 1", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE2, "Purple Beard 2", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE3, "Purple Beard 3", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE4, "Purple Beard 4", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE5, "Purple Beard 5", THERMAL_UNDEFINED },
+	{ BEARD_PURPLE6, "Purple Beard 6", THERMAL_UNDEFINED },
+
+	{ 19347, "Badge 1", THERMAL_UNDEFINED },
+	{ 19774, "Badge 2", THERMAL_UNDEFINED },
+	{ 19775, "Badge 3", THERMAL_UNDEFINED },
+	{ 19776, "Badge 4", THERMAL_UNDEFINED }
+
+} ;
+
+GetAttachmentThermalInfo(attachid) {
+
+	return Attachments[attachid][attach_thermal_info];
+}

@@ -1,0 +1,1 @@
+AddSimpleModel(0, 1923, -2027, "traps/footlock.dff", "traps/footlock.txd");

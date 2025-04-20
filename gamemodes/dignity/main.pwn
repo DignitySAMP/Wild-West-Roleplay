@@ -1,0 +1,1 @@
+#include "dignity/update.pwn"

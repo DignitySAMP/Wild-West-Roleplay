@@ -1,0 +1,33 @@
+new g_Object[28];
+g_Object[0] = CreateObject(17457, -1342.0345, 2685.2854, 54.7951, 0.0000, 0.0000, -148.7002, 250.0000); //sjmoldbarn04
+g_Object[1] = CreateObject(14875, -1354.8314, 2686.7558, 50.0878, 0.0000, 5.0999, 8.5000, 75.0000); //Kylie_hay1
+g_Object[2] = CreateObject(3276, -1350.6877, 2658.9196, 51.1456, 0.0000, 0.0000, -50.8999, 150.0000); //cxreffencesld
+g_Object[3] = CreateObject(14875, -1359.6439, 2680.3237, 50.6573, 0.0000, 3.9999, 8.5000, 75.0000); //Kylie_hay1
+g_Object[4] = CreateObject(3276, -1367.0281, 2679.0273, 52.1610, 0.0000, 4.7999, -50.8999, 150.0000); //cxreffencesld
+g_Object[5] = CreateObject(3276, -1374.4110, 2688.1132, 53.3346, 0.0000, 6.5999, -50.8999, 150.0000); //cxreffencesld
+g_Object[6] = CreateObject(3276, -1332.5212, 2653.5402, 50.2757, 0.0000, 0.7999, 22.2000, 150.0000); //cxreffencesld
+g_Object[7] = CreateObject(3276, -1320.4801, 2657.9143, 50.0457, 0.0000, 0.0000, 18.9000, 150.0000); //cxreffencesld
+g_Object[8] = CreateObject(3276, -1309.1002, 2661.8098, 50.0457, 0.0000, 0.0000, 18.9000, 150.0000); //cxreffencesld
+g_Object[9] = CreateObject(-1823, -1339.1750, 2676.1826, 49.1574, 0.0000, 0.0000, 0.0000, 25.0000); //mrp_hay_a.dff
+g_Object[10] = CreateObject(-1983, -1337.0405, 2679.6569, 49.0651, 0.0000, 0.0000, 75.3999, 25.0000); //mrp_bench.dff
+g_Object[11] = CreateObject(17011, -1328.2449, 2663.9309, 49.0451, 0.0000, 0.0000, 20.5999, 250.0000); //truth_barn04
+g_Object[12] = CreateObject(3260, -1347.3099, 2684.1823, 48.5443, -5.2999, 0.0000, -59.9999, 25.0000); //oldwoodpanel
+g_Object[13] = CreateObject(12921, -1359.1606, 2668.7023, 53.6965, 0.0000, 2.9999, -51.9000, 50.0000); //sw_farment01
+g_Object[14] = CreateObject(3260, -1343.4526, 2677.5415, 48.5425, -5.2999, 0.0000, -59.9999, 25.0000); //oldwoodpanel
+g_Object[15] = CreateObject(-1841, -1327.0397, 2668.1430, 49.9079, 0.0000, 0.0000, 0.0000, 25.0000); //mrp_cart_a.dff
+g_Object[16] = CreateObject(-1840, -1332.3464, 2683.1362, 49.0684, -1.1999, 0.0000, -101.2000, 25.0000); //mrp_cart_b.dff
+g_Object[17] = CreateObject(3414, -1308.8492, 2671.6069, 51.2075, 0.0000, 0.0000, 25.7000, 150.0000); //CE_oldhut1
+SetObjectMaterial(g_Object[17], 0, 13364, "cetown3cs_t", "sw_barnwood2", 0xFFFFFFFF);
+SetObjectMaterial(g_Object[17], 1, 9514, "711_sfw", "shingles2", 0xFFFFFFFF);
+g_Object[18] = CreateObject(3276, -1299.4440, 2673.1630, 49.8857, 0.0000, 0.0000, 110.1999, 150.0000); //cxreffencesld
+g_Object[19] = CreateObject(3417, -1326.2673, 2695.9008, 49.1041, 0.0000, 0.0000, 0.0000, 150.0000); //CE_loghut02
+SetObjectMaterial(g_Object[19], 0, 1281, "benches", "pierdoor02_law", 0xFFFFFFFF);
+SetObjectMaterial(g_Object[19], 1, 13206, "ce_ground10", "des_shingles", 0xFFFFFFFF);
+g_Object[20] = CreateObject(3276, -1311.1679, 2690.7785, 49.8857, 0.0000, 0.0000, 129.8999, 150.0000); //cxreffencesld
+g_Object[21] = CreateObject(3276, -1319.1691, 2700.7041, 49.8857, 0.0000, 0.0000, 124.3999, 150.0000); //cxreffencesld
+g_Object[22] = CreateObject(3276, -1328.3078, 2702.6049, 49.8857, 0.0000, 0.0000, -153.5001, 150.0000); //cxreffencesld
+g_Object[23] = CreateObject(3694, -1323.0150, 2687.3122, 49.4278, 0.0000, 0.0000, 0.0000, 75.0000); //ryder_holes
+g_Object[24] = CreateObject(3694, -1337.5532, 2664.2524, 49.4378, 0.0000, 0.0000, 0.0000, 75.0000); //ryder_holes
+g_Object[25] = CreateObject(3425, -1340.0273, 2697.0546, 59.8685, 0.0000, 0.0000, 60.1999, 150.0000); //nt_windmill
+g_Object[26] = CreateObject(672, -1312.7294, 2700.7907, 49.8297, 0.0000, 0.0000, 0.0000, 150.0000); //sm_veg_tree5
+g_Object[27] = CreateObject(672, -1316.2191, 2663.1499, 49.8297, 0.0000, 0.0000, 0.0000, 150.0000); //sm_veg_tree5
