@@ -1,0 +1,6 @@
+#include "modules/world/objects/objects-removals.pwn"
+#include "modules/world/objects/objects-maps.pwn"
+#include "modules/world/objects/objects-roads.pwn"
+#include "modules/world/objects/objects-hand.pwn"
+#include "modules/world/objects/objects-gangzones.pwn"
+#include "modules/world/objects/objects-main.pwn"

@@ -1,0 +1,5 @@
+#include "modules/staff/staff-tools.pwn"
+#include "modules/staff/staff-general.pwn"
+#include "modules/staff/staff-advanced.pwn"
+#include "modules/staff/staff-coc.pwn"
+#include "modules/staff/staff-geo.pwn"

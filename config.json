@@ -1,0 +1,54 @@
+{
+    "name": "Wild West Roleplay",
+    "announce": false,
+    "max_players": 100,
+    "max_bots": 10,
+    "rcon": {
+        "allow_teleport": true,
+        "enable": true,
+        "password": "set-at-boot"
+    },
+    "pawn": {
+        "main_scripts": [
+            "wwrp 1"
+        ],
+        "legacy_plugins": [
+            "crashdetect",
+            "PawnPlus",
+            "streamer",
+            "mysql",
+            "samp_bcrypt",
+            "ColAndreas_static"
+        ]
+    },
+    "network": {
+        "acks_limit": 10000,
+        "message_hole_limit": 10000,
+        "allow_037_clients": false
+    },
+    "sleep": 5.0,
+    "use_dyn_ticks": true,
+    "website": "",
+    "language": "English",
+    "game": {
+        "lag_compensation_mode": 1,
+        "map": "San Andreas",
+        "mode": "Wild West Roleplay"
+    },
+    "artwork": {
+        "enable": true,
+        "models_path": "models",
+        "web_server_bind": "0.0.0.0",
+        "cdn": "",
+        "port": 7777
+    },
+    "logo": "",
+    "discord": {
+        "invite": ""
+    },
+    "chat_input_filter": true,
+    "enable_query": true,
+    "logging": {
+        "log_chat": false
+    }
+}

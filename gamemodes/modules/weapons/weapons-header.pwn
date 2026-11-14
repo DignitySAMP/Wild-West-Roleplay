@@ -1,0 +1,7 @@
+#include "modules/weapons/weapons-data.pwn"
+#include "modules/weapons/weapons-cmds.pwn"
+#include "modules/weapons/weapons-combat.pwn"
+#include "modules/weapons/weapons-drop.pwn"
+#include "modules/weapons/weapons-items.pwn"
+#include "modules/weapons/weapons-staff.pwn"
+#include "modules/weapons/weapons-main.pwn"

@@ -1,0 +1,64 @@
+{
+  "user": "DignitySAMP",
+  "repo": "wildwest_roleplay",
+  "preset": "openmp",
+  "entry": "gamemodes/wwrp.pwn",
+  "output": "gamemodes/wwrp.amx",
+  "dependencies": [
+    "openmultiplayer/omp-stdlib#17c1b0191195cb0b59a820135fbca622c84129dd",
+    "pawn-lang/samp-stdlib@open.mp",
+    "pawn-lang/pawn-stdlib@open.mp",
+    "IS4Code/PawnPlus:v1.5.3",
+    "AGraber/pawn-plus-mysql:1.0.3",
+    "samp-incognito/samp-streamer-plugin:v2.9.6",
+    "Y-Less/sscanf:v2.13.8",
+    "oscar-broman/strlib#d48c74a65f03131381404fdc8e64873384e4c9b8",
+    "YashasSamaga/SmartCMD#50fa082b62f613579588477ef4b5abb837e33f7c",
+    "Sreyas-Sreelal/samp-bcrypt:0.4.1",
+    "Pottus/ColAndreas:1.5.0",
+    "DignitySAMP/omp-playing-cards#cfca1201a6920a1a14cb9b353bbc7b872226ba41"
+  ],
+  "local": true,
+  "builds": [
+    {
+      "name": "main",
+      "args": [
+        "-Z-",
+        "-;+",
+        "-(+",
+        "-d3"
+      ],
+      "includes": [
+        "legacy",
+        "gamemodes",
+        "dependencies/samp-streamer-plugin",
+        "dependencies/sscanf"
+      ],
+      "compiler": {
+        "site": "github.com",
+        "user": "openmultiplayer",
+        "repo": "compiler",
+        "version": "3.10.11"
+      }
+    },
+    {
+      "name": "linux",
+      "args": [
+        "-Z-",
+        "-;+",
+        "-(+",
+        "-d3"
+      ],
+      "includes": [
+        "legacy",
+        "gamemodes"
+      ],
+      "compiler": {
+        "site": "github.com",
+        "user": "openmultiplayer",
+        "repo": "compiler",
+        "version": "3.10.11"
+      }
+    }
+  ]
+}

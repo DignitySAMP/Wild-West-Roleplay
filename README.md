@@ -1,4 +1,109 @@
-## Wild West Roleplay
+<p align="center"><img src="./screenshots/logo.png" alt="Wild West Roleplay"></p>
+
+Wild West Roleplay's gamemode has been ported to open.mp for SA-MP 0.3.DL clients. Every feature of the original is still in verbatim but rewritten on PawnPlus and split into one folder per feature, with the bugs I could find fixed. The code as I first open sourced it is on the `legacy` branch. You can read the original feature list from the legacy release at the bottom here.
+
+This has been tested end to end on an open.mp 1.6.7 server with multiple players on 0.3DL: registering, the quiz, character creation, the shops, the inventory, poker, blackjack, wanted posters, farming, hunting, horses and the custom models, which the server now hands out through open.mp's artwork component. It uses PawnPlus tasks for queries, timers and dialogs, pools instead of fixed arrays, and pp-hooks for hooks. MySQL uses MRP's migration script so the database sets itself up on the first boot. Passwords are now hashed with bcrypt (originally sha256) so if you already have data you will have to convert it.
+
+All 329 commands are converted and updated verbatim to their original implementation. Dialogs now use tdialogs and the textdraw menus (registration, character select, inventory, action panel, ...) are optimized but their appearance unchanged. Over 440 bugs from the original were fixed, and the systems that were never finished (telegrams, the lottery) now work. See the changes below.
+
+| | |
+|---|---|
+| ![Character select](./screenshots/02-select.jpg) | ![Character creation](./screenshots/03-create.jpg) |
+| ![General store](./screenshots/04-shop.jpg) | ![Inventory](./screenshots/05-inventory.jpg) |
+| ![Poker](./screenshots/06-poker.jpg) | ![Blackjack](./screenshots/07-blackjack.jpg) |
+| ![Wanted poster](./screenshots/08-poster.jpg) | ![Farming](./screenshots/09-farming.jpg) |
+| ![Hunting](./screenshots/10-hunting.jpg) | ![Horse](./screenshots/11-horse.jpg) |
+
+## Building and running
+
+You need [sampctl](https://github.com/Southclaws/sampctl), the [open.mp server](https://github.com/openmultiplayer/open.mp/releases) (1.6.7 or newer), MariaDB or MySQL, and a SA-MP 0.3.DL client to connect with.
+
+Build the gamemode:
+
+```
+sampctl ensure
+sampctl build linux
+```
+
+Or `sampctl build` on Windows.
+
+Set up the server:
+
+- Unpack the open.mp server somewhere and copy `gamemodes/`, `models/`, `scriptfiles/` and `config.json` from this repo into that folder.
+- Make sure your plugins folder is correct (sampctl should take care of this but just incase) crashdetect 4.22, PawnPlus 1.5.3, streamer 2.9.6, MySQL R41-4, samp_bcrypt 0.4.1 and ColAndreas 1.5.0 (the static build, `ColAndreas_static`).
+- Put sscanf 2.13.8 in `components/`. Copy any extra files a plugin's release ships with, like the MySQL plugin's libraries on Windows.
+- Configure rcon and `network.public_addr` or `artwork.cdn` as you would any regular 0.3DL server.
+
+Set up the database:
+
+- Create an empty database and a user for it.
+- Rename `mysql-example.ini` to `mysql.ini` in the server folder and fill it in.
+- The migration script will create the DDL on first boot.
+
+You can place shops, houses and other points yourself in game with `/apoint` (managers).
+
+Start it with `./omp-server` (or `omp-server.exe`) and connect with a 0.3.DL client on port 7777.
+
+## Changes and fixes
+
+### Server
+- Built for open.mp 1.6.7 and the 0.3.DL client, with every custom model, skin and the horse animations served by the artwork component
+- Fixed seven custom skins that never loaded
+- Removed rigged GTA objects in the old maps (spray tags, train barriers, ...) since they would crash your client.
+- IMPORTANT!!!: `config.json` raises `network.message_hole_limit` to 10000. This is INTENTIONAL! With the default of 3000, walking out of a mapped interior will stream hundreds of thousands of foliage objects! Enough objects to get the player kicked and their IP blocked for a while... So do not change this!
+- Added `/gmx` for managers: a 30 second countdown that refunds running blackjack games and ends poker tables before the restart
+
+### Accounts
+- Fixed failed password tries resetting on every reconnect
+- Fixed quiz questions 0 to 2 never being asked
+- Fixed `/selectcharacter` accepting negative slots and never loading the chosen one
+
+### Money
+- Fixed `/pay 0 99` creating money when your hand was empty
+- Fixed `/bank withdraw 0 99` creating money on an empty account
+- Fixed cents getting lost on reload
+- Fixed `/bail` never taking the money
+- Fixed `/givemoney` accepting negative amounts
+- Fixed selling a point throwing away the till money and the stored weapons
+
+### Inventory, weapons and horses
+- Fixed items above the stack limit getting lost
+- Fixed `/pickupgun` destroying the gun even when giving the weapon was refused
+- Fixed `/saddlebag store` overwriting an occupied slot and losing the weapon in it
+- Horse prices and the revive are charged in dollars, as the texts say
+
+### Jobs, farming and traps
+- Fixed the ore table being swapped. Gold now comes from about 16% of rocks.
+- Fixed harvesting never giving a basket. Only the plot owner can harvest, and a harvested plot goes back to an empty hole.
+- Fixed anyone being able to disarm and pick up another player's trap
+- Fixed `/cooldowns` clearing a running mining cooldown for free
+
+### Posses and law
+- Fixed `/prison` accepting 0 or negative minutes
+- Fixed anyone near a wanted poster being able to remove any poster
+- `/possekiosk take` (the weapon locker) needs tier 2, clearing a charge needs the officer near the player, and you can no longer put a bounty on yourself to inflate the economy
+- `/wounds` is staff only, since any player could add fake wounds
+
+### Games
+- Poker is rewritten from the Texas Hold'em rules with a new hand evaluator. The table keeps its look.
+- Blackjack and poker use my [omp-playing-cards](https://github.com/DignitySAMP/omp-playing-cards) library for the deck and the card sprites
+- Blackjack bets are held by the house until the hand ends. A timeout or a kick refunds the bet, quitting forfeits it, and every leave is logged so nobody can crash out of a losing hand.
+
+### Finished systems
+- Telegrams: buy a number for $500 at the post office, then `/telegram` and `/viewtelegrams`
+- The lottery: $1 tickets at the post office, an hourly draw, and online holders of the number split the pot
+- The anticheat is rewritten on events with a single tick timer now, although I highly recommend not relying on it since it's very old!
+
+## Credits for the port
+
+- Banana_Ghost for iptrace, which the original used for `/geoip`
+- Gammix for PreviewModelDialog, which the shop picture menus are based on
+- ThreeKingz for TPoker, and LorenC, whose SF-CNR version of it the original poker table was taken from
+- The authors of the libraries this runs on: open.mp, PawnPlus (IS4Code), pawn-plus-mysql and pp-hooks (AGraber), tdialogs (TommyB123), the MySQL plugin (pBlueG), streamer (Incognito), sscanf (Y_Less), strlib (oscar-broman), SmartCMD (YashasSamaga), samp-bcrypt (Sreyas-Sreelal), ColAndreas (Pottus) and crashdetect (Zeex)
+
+---
+
+## Wild West Roleplay (original legacy release)
 
 ![Server Map](./server_map.png)
 
@@ -6,19 +111,17 @@ This was the magnum opus gamemode that established my name in SA-MP in 2016 to 2
 
 This server originally launched in 2016 and had a peak of 90 players. It lasted about four or five months before our inexperience (mostly on a management scope) caused the server to implode. During the development of Medieval Roleplay, it was reopened in 2018 with many updates to showcase the power of SA-MP 0.3DL (fully animated horses, custom towns, custom attachment models, ...).
 
-> This script is extremely outdated. It is being open sourced for archive purposes, since it is collecting dust on my hard drive. It is NOT recommended for use, rather only for reference and nostalgia.
-
 Credits to the developers:
  - DignitySAMP (project lead)
  - DTVSamp (main developer)
  - Rusu (main developer)
 
-I figure not many people will get this to run (or at least, not in a playable state), so if you are curious to see what the server looked like when it was up (https://www.youtube.com/watch?v=Me0RweOwJLk):
+If you are curious to see what the server looked like when it was up (https://www.youtube.com/watch?v=Me0RweOwJLk):
 
 [![thumb](https://i.ytimg.com/vi/Me0RweOwJLk/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDT3eNzoNaN3eNmNAdhJ2e3nRln7A)](https://www.youtube.com/watch?v=Me0RweOwJLk)
 
 
-Support will not be given to run this, as it is not intended to be put online. I hope that with the release of this script, people can look at some of our techniques, innovative solutions and learn from our mistakes.
+I hope that with the release of this script, people can look at some of our techniques, innovative solutions and learn from our mistakes.
 
 ## Feature list
 

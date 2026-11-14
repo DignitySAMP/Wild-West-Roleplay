@@ -1,0 +1,6 @@
+#include "modules/player/injury/injury-data.pwn"
+#include "modules/player/injury/injury-corpse.pwn"
+#include "modules/player/injury/injury-life.pwn"
+#include "modules/player/injury/injury-damage.pwn"
+#include "modules/player/injury/injury-burn.pwn"
+#include "modules/player/injury/injury-main.pwn"

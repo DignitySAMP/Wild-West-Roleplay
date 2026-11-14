@@ -1,0 +1,6 @@
+#include "modules/jobs/core/jobs-data.pwn"
+#include "modules/jobs/fishing/fishing-main.pwn"
+#include "modules/jobs/mining/mining-main.pwn"
+#include "modules/jobs/lumber/lumber-main.pwn"
+#include "modules/jobs/scatter/scatter-main.pwn"
+#include "modules/jobs/core/jobs-main.pwn"

@@ -1,0 +1,5 @@
+#include "modules/player/skills/skills-data.pwn"
+#include "modules/player/skills/skills-weapon.pwn"
+#include "modules/player/skills/skills-cmds.pwn"
+#include "modules/player/skills/skills-swim.pwn"
+#include "modules/player/skills/skills-main.pwn"

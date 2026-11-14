@@ -1,0 +1,7 @@
+#include "modules/property/property-data.pwn"
+#include "modules/property/property-enter.pwn"
+#include "modules/property/property-cmds.pwn"
+#include "modules/property/property-staff.pwn"
+#include "modules/property/property-motel.pwn"
+#include "modules/property/furniture/furniture-header.pwn"
+#include "modules/property/property-main.pwn"
